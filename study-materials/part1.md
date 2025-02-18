@@ -3,6 +3,9 @@
 Pada pertemuan kali ini, kalian akan belajar apa itu object pada javascript.
 Objek adalah kumpulan tidak berurut yang merangkai beberapa property dan property memiliki nama/key dan value (key-value pairs).
 
+![image](https://github.com/user-attachments/assets/087c4bfc-76b9-4c04-9f4f-43bdc0f8a31d)
+
+
 object itu seperti berikut
 ```js
 let myObj = {
