@@ -1,10 +1,16 @@
+//cari faktor persekutuan terbesar
 function fpb(angka1, angka2) {
-  // Selama angka2 tidak 0, kita lakukan proses pembagian sisa
+  // you can only write your code here!
+  angka1 = Math.abs(angka1);
+  angka2 = Math.abs(angka2);
+
+  // Algoritma Euclidean
   while (angka2 !== 0) {
     let temp = angka2;
     angka2 = angka1 % angka2;
     angka1 = temp;
   }
+
   return angka1;
 }
 

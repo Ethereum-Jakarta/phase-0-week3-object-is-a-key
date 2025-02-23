@@ -1,44 +1,35 @@
 function cariModus(arr) {
-  let frequency = {};
-
-  // Hitung frekuensi kemunculan setiap angka
+  // Step 1: Hitung frekuensi kemunculan setiap angka
+  const frequency = {};
   for (let num of arr) {
-    if (frequency[num]) {
-      frequency[num]++;
-    } else {
-      frequency[num] = 1;
+    frequency[num] = (frequency[num] || 0) + 1;
+  }
+
+  // Step 2: Cari frekuensi maksimum dan angka yang paling sering muncul
+  let maxFrequency = 0;
+  let modus = -1;
+  for (let num in frequency) {
+    if (frequency[num] > maxFrequency) {
+      maxFrequency = frequency[num];
+      modus = Number(num); // Konversi kunci objek ke angka
     }
   }
 
-  // Jika hanya ada 1 nilai unik atau semua angka muncul hanya sekali, tidak ada modus
-  if (Object.keys(frequency).length === 1) return -1;
-  let maxFreq = 0;
-  for (let key in frequency) {
-    if (frequency[key] > maxFreq) {
-      maxFreq = frequency[key];
-    }
-  }
-  if (maxFreq === 1) return -1;
-
-  // Cari semua angka yang memiliki frekuensi tertinggi
-  let candidates = [];
-  for (let key in frequency) {
-    if (frequency[key] === maxFreq) {
-      candidates.push(Number(key));
-    }
+  // Step 3: Periksa kasus khusus
+  // Jika hanya ada satu nilai unik, return -1
+  const uniqueValues = Object.keys(frequency).length;
+  if (uniqueValues === 1) {
+    return -1;
   }
 
-  // Jika lebih dari satu kandidat, pilih yang muncul pertama kali di array
-  if (candidates.length > 1) {
-    for (let num of arr) {
-      if (candidates.includes(num)) {
-        return num;
-      }
-    }
+  // Jika semua angka memiliki frekuensi yang sama, return -1
+  const allSameFrequency = Object.values(frequency).every((freq) => freq === 1);
+  if (allSameFrequency) {
+    return -1;
   }
 
-  // Jika hanya satu kandidat, kembalikan kandidat tersebut
-  return candidates[0];
+  // Step 4: Return modus
+  return modus;
 }
 
 // TEST CASES

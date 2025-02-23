@@ -2,15 +2,13 @@
 //cek google bagi yang ga tau apa itu angka prima
 function angkaPrima(angka) {
   // you can only write your code here!
-  if (angka < 2) return false;
-
-  for (let i = 2; i <= Math.sqrt(angka); i++) {
+  let flag = true;
+  for (let i = angka - 1; i > 1; i--) {
     if (angka % i === 0) {
-      return false;
+      flag = false;
     }
   }
-
-  return true;
+  return flag;
 }
 
 // TEST CASES

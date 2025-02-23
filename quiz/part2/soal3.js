@@ -1,21 +1,23 @@
-//TIPS: gunakan method toUpperCase() dan toLowerCase()
 function tukarBesarKecil(kalimat) {
-  let result = "";
+  let hasil = ""; // Variabel untuk menyimpan hasil akhir
 
   for (let i = 0; i < kalimat.length; i++) {
-    let char = kalimat[i];
-    // Jika hurufnya sama dengan versi uppercase-nya, berarti huruf tersebut besar
+    let char = kalimat[i]; // Ambil karakter saat ini
+
+    // Periksa apakah karakter adalah huruf besar
     if (char === char.toUpperCase() && char !== char.toLowerCase()) {
-      result += char.toLowerCase();
-    } else if (char === char.toLowerCase() && char !== char.toUpperCase()) {
-      result += char.toUpperCase();
+      hasil += char.toLowerCase(); // Ubah menjadi huruf kecil
+    }
+    // Periksa apakah karakter adalah huruf kecil
+    else if (char === char.toLowerCase() && char !== char.toUpperCase()) {
+      hasil += char.toUpperCase(); // Ubah menjadi huruf besar
     } else {
-      // Jika bukan huruf (misal angka atau simbol), langsung tambahkan
-      result += char;
+      // Jika bukan huruf alfabet (misalnya angka atau simbol), tambahkan karakter aslinya
+      hasil += char;
     }
   }
 
-  return result;
+  return hasil; // Kembalikan hasil akhir
 }
 
 // TEST CASES

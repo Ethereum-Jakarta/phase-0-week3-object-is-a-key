@@ -1,16 +1,10 @@
 function cariMedian(arr) {
-  // Pertama, urutkan array
-  arr.sort((a, b) => a - b);
-
-  let mid = Math.floor(arr.length / 2);
-
-  if (arr.length % 2 !== 0) {
-    // Jika ganjil, median adalah nilai tengah
-    return arr[mid];
-  } else {
-    // Jika genap, median adalah rata-rata dari dua nilai tengah
-    return (arr[mid - 1] + arr[mid]) / 2;
+  // you can only write your code here!
+  let angka = 0;
+  for (let i = 0; i < arr.length; i++) {
+    angka += arr[i];
   }
+  return Math.round(angka / arr.length);
 }
 
 // TEST CASES
