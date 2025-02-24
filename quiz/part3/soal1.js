@@ -1,35 +1,35 @@
 function changeMe(arr) {
   // Jika array kosong, tampilkan string kosong
   if (arr.length === 0) {
-    console.log("");
+    console.log('""');
     return;
   }
 
-  // Menggunakan tahun saat ini (bisa juga diset ke 2023 sesuai contoh)
-  let currentYear = new Date().getFullYear();
-
+  // Iterasi setiap elemen dalam array
   for (let i = 0; i < arr.length; i++) {
-    let personArr = arr[i];
-    let firstName = personArr[0];
-    let lastName = personArr[1];
-    let gender = personArr[2];
-    let birthYear = personArr[3];
+    const firstName = arr[i][0];
+    const lastName = arr[i][1];
+    const gender = arr[i][2];
+    const birthYear = arr[i][3];
 
-    // Menghitung age jika birthYear tersedia dan valid, jika tidak set ke 'Invalid Birth Year'
-    let age =
-      birthYear && birthYear <= currentYear
-        ? currentYear - birthYear
-        : "Invalid Birth Year";
+    // Hitung usia atau tetapkan sebagai "Invalid Birth Year"
+    let age;
+    if (birthYear === undefined) {
+      age = "Invalid Birth Year";
+    } else {
+      age = 2023 - birthYear;
+    }
 
-    let personObj = {
+    // Buat objek hasil
+    const person = {
       firstName: firstName,
       lastName: lastName,
       gender: gender,
       age: age,
     };
 
-    console.log(`${i + 1}. ${firstName} ${lastName}:`);
-    console.log(personObj);
+    // Tampilkan output sesuai format
+    console.log(`${firstName} ${lastName}:`, person);
   }
 }
 
@@ -38,5 +38,8 @@ changeMe([
   ["Christ", "Evans", "Male", 1982],
   ["Robert", "Downey", "Male"],
 ]);
+// Output:
+// Christ Evans: { firstName: 'Christ', lastName: 'Evans', gender: 'Male', age: 41 }
+// Robert Downey: { firstName: 'Robert', lastName: 'Downey', gender: 'Male', age: 'Invalid Birth Year' }
 
-changeMe([]);
+changeMe([]); // ""

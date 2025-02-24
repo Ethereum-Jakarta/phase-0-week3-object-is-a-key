@@ -1,53 +1,60 @@
+/*
+Toko X yang sedang melakukan SALE ingin menghitung jumlah profit untuk setiap jenis barang yang terjual pada hari itu.
+
+Barang-barang SALE yang akan dihitung penjualannya:
+
+Sepatu brand Stacattu seharga 1500000 dan stock barang yang tesedia 10
+Baju brand Zoro seharga 500000 dan stock barang yang tesedia 2
+Sweater brand Uniklooh seharga 175000 dan stock barang yang tersedia 1
+Function akan menerima array yang berisikan object pembeli (nama pembeli, barang yang ingin dibeli dan jumlah barang yang dibelinya). Jika stock barang kurang dari jumlah yang ingin dibeli oleh pembeli maka pembeli batal untuk membeli barang tersebut.
+
+Function countProfit akan mengembalikan/me-return sebuah array of object dimana array tersebut berisi objek-objek barang dari toko X tersebut yang berisikan info nama barang, siapa saja yang membeli, sisa stock barang dan total pemasukan untuk barang tersebut
+*/
+
 function countProfit(shoppers) {
+  // Data awal barang di toko
   var listBarang = [
     ["Sepatu Stacattu", 1500000, 10],
     ["Baju Zoro", 500000, 2],
     ["Sweater Uniklooh", 175000, 1],
   ];
 
-  if (shoppers.length === 0) {
-    return [];
-  }
+  // Inisialisasi hasil akhir
+  var result = [];
 
-  const hasil = [
-    {
-      product: "Sepatu Stacattu",
-      shoppers: [],
-      leftOver: 10,
-      totalProfit: 0,
-    },
-    {
-      product: "Baju Zoro",
-      shoppers: [],
-      leftOver: 2,
-      totalProfit: 0,
-    },
-    {
-      product: "Sweater Uniklooh",
-      shoppers: [],
-      leftOver: 1,
-      totalProfit: 0,
-    },
-  ];
+  // Iterasi setiap barang di toko
+  for (var i = 0; i < listBarang.length; i++) {
+    var productName = listBarang[i][0];
+    var productPrice = listBarang[i][1];
+    var stock = listBarang[i][2];
 
-  for (let i = 0; i < shoppers.length; i++) {
-    let buyer = shoppers[i];
-    // Loop tiap produk di hasil
-    for (let j = 0; j < hasil.length; j++) {
-      // Cek apakah produk yang ingin dibeli sama dengan produk di hasil
-      if (buyer.product === hasil[j].product) {
-        if (hasil[j].leftOver >= buyer.amount) {
-          hasil[j].shoppers.push(buyer.name);
-          hasil[j].leftOver -= buyer.amount;
-          // Hitung profit berdasarkan harga produk dan jumlah yang dibeli
-          let price = listBarang[j][1];
-          hasil[j].totalProfit += buyer.amount * price;
-        }
+    // Inisialisasi data untuk barang ini
+    var productData = {
+      product: productName,
+      shoppers: [],
+      leftOver: stock,
+      totalProfit: 0,
+    };
+
+    // Iterasi setiap pembeli
+    for (var j = 0; j < shoppers.length; j++) {
+      var shopper = shoppers[j];
+      if (
+        shopper.product === productName &&
+        shopper.amount <= productData.leftOver
+      ) {
+        // Jika barang cocok dan stok mencukupi
+        productData.shoppers.push(shopper.name);
+        productData.leftOver -= shopper.amount;
+        productData.totalProfit += shopper.amount * productPrice;
       }
     }
+
+    // Tambahkan data barang ke hasil akhir
+    result.push(productData);
   }
 
-  return hasil;
+  return result;
 }
 
 // TEST CASES
@@ -91,3 +98,20 @@ console.log(
 //   { product: 'Sweater Uniklooh',
 //     shoppers: [ 'Rani' ],
 //     leftOver: 0,
+//     totalProfit: 175000 } ]
+console.log(
+  countProfit([{ name: "Windi", product: "Sepatu Naiki", amount: 5 }])
+);
+// [ { product: 'Sepatu Stacattu',
+//     shoppers: [],
+//     leftOver: 10,
+//     totalProfit: 0 },
+//   { product: 'Baju Zoro',
+//     shoppers: [],
+//     leftOver: 2,
+//     totalProfit: 0 },
+//   { product: 'Sweater Uniklooh',
+//     shoppers: [],
+//     leftOver: 1,
+//     totalProfit: 0 } ]
+console.log(countProfit([])); //[]
