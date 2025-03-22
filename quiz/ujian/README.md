@@ -100,7 +100,7 @@ console.log(highestScore([
     class: 'foxes'
   },
   {
-    name: 'Anastasia',
+    name: 'Anastasia'
     score: 78,
     class: 'wolves'
   }
