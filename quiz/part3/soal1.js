@@ -1,29 +1,34 @@
 function changeMe(arr) {
-    let curyear = 2023;
-  
-  
-  
-    for (let i = 0; i < arr.length; i++) {
-      let value = arr[i];
-      let age;
-  
-      if (value[3] === undefined || value[3] > curyear) {
-        age = 'Invalid Birth Year';
-      } else {
-        age = curyear - value[3];
-      }
-  
-      let obj = {
-        firstName: value[0],
-        lastName: value[1],
-        gender: value[2],
-        age: age
-      };
-  
-      console.log(`${i + 1}. ${value[0]} ${value[1]}:`);
-      console.log(obj);
+  let peopleData = [];
+
+  const currentYear = 2025;
+
+  for (let i = 0; i < arr.length; i++) {
+    let person = arr[i];
+
+    let age;
+    if (!person[3] || person[3] > currentYear) {
+      age = 'Invalid Birth Year';
+    } else {
+      age = currentYear - person[3];
     }
+
+    let data = {
+      firstName: person[0],
+      lastName: person[1],
+      gender: person[2],
+      age: age
+    };
+
+    peopleData.push(data);
+
+    console.log(`${i + 1}. ${person[0]} ${person[1]}:`);
+    console.log(data);
   }
+
+  return peopleData; // kalau kamu ingin menyimpan datanya juga
+}
+
   
   
   // TEST CASES
