@@ -2,18 +2,18 @@
 //```js
 function cariMedian(arr) {
   // you can only write your code here!
-  const sortedArr = arr.slice().sort((a, b) => a - b);
+  const sortedArr = arr.slice().sort((a, b) => a - b); // menggunakan .slice untuk membuat salinan dangkal agar tidak merubah array yang asli
   let panjangArr = sortedArr.length;
   let median;
   if (panjangArr % 2 === 0) {
     const index1 = panjangArr / 2 - 1;
     const index2 = panjangArr / 2;
 
-    median = (arr[index1] + arr[index2]) / 2;
+    median = (sortedArr[index1] + sortedArr[index2]) / 2;
   } else if (panjangArr % 2 === 1) {
     const indextengah = Math.floor(panjangArr / 2);
 
-    median = arr[indextengah];
+    median = sortedArr[indextengah];
   }
 
   return median;
