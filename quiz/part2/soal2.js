@@ -1,0 +1,27 @@
+//DILARANG MENGGUNAKAN METHOD SORT, PELAJARI ALGORITMA SORTING YANG ADA DI GOOGLE
+//saran sih pake bubblesort walau tidak efisien tapi bagus buat belajar sorting
+function urutkanAbjad(str) {
+  let arr = str.split("");
+
+  let swapped;
+  do {
+    swapped = false;
+    for (let i = 0; i < arr.length - 1; i++) {
+      if (arr[i] > arr[i + 1]) {
+        let temp = arr[i];
+        arr[i] = arr[i + 1];
+        arr[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+
+  return arr.join("");
+}
+
+// TEST CASES
+console.log(urutkanAbjad("hello")); // 'ehllo'
+console.log(urutkanAbjad("truncate")); // 'acenrttu'
+console.log(urutkanAbjad("developer")); // 'deeeloprv'
+console.log(urutkanAbjad("software")); // 'aeforstw'
+console.log(urutkanAbjad("aegis")); // 'aegis'
