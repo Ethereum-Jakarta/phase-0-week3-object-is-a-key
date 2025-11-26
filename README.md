@@ -21,14 +21,19 @@ Selamat datang di modul "Object and Logic" dengan JavaScript! Modul ini dirancan
    - Latihan dasar untuk memperkuat pemahaman
    - Studi kasus sederhana untuk penerapan nyata
 
-## Cara Menggunakan Repo Ini
+## Week 3 Study Materials
+- [Object DeepDive](https://github.com/RPN-Phase-0/Week3-Object-is-a-key/blob/main/study-materials/part1.md)
 
-1. **Mulailah dengan membaca materi yang tersedia di setiap folder.** Setiap topik disertai dengan penjelasan mendetail dan contoh kode yang bisa Anda pelajari.
-2. **Coba tulis kode Anda sendiri!** Setiap bagian menyertakan latihan praktis yang bisa Anda coba untuk menguji pemahaman Anda.
-3. **Bergabunglah dengan komunitas.** Jangan ragu untuk bertanya atau berdiskusi dengan sesama pemula di bagian issues atau melalui pull requests.
+## Week 3 Logic Nolep (Quiz)
+- [Part1](https://github.com/RPN-Phase-0/Week3-Object-is-a-key/tree/main/quiz/part1)
+- [Part2](https://github.com/RPN-Phase-0/Week3-Object-is-a-key/tree/main/quiz/part2)
+- [Part3](https://github.com/RPN-Phase-0/Week3-Object-is-a-key/tree/main/quiz/part3)
+- [Ujian Week3](https://github.com/RPN-Phase-0/Week3-Object-is-a-key/tree/main/quiz/ujian)
 
 ## Dukung Kami
 
-Jika Anda menemukan repo ini bermanfaat, jangan lupa untuk memberikan bintang ⭐ di bagian atas halaman. Dukung kami dengan cara share materi ini ke teman-teman kalian.
+Jika Kalian menemukan repo ini bermanfaat, jangan lupa untuk memberikan bintang ⭐ di bagian atas halaman. Dukung kami dengan cara sebarkan ke teman-teman kalian, karena materi ini gratis!
 
-Selamat belajar dan selamat menjelajahi dunia objek dan logika dengan JavaScript! 🚀
+Selamat belajar dan selamat datang di dunia pemrograman! 🚀
+
+[Discord RPN](https://discord.gg/ufbRBRTKN8)
