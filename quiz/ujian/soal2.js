@@ -10,9 +10,9 @@ function naikAngkot(arrPenumpang) {
   rute = ["A", "B", "C", "D", "E", "F"];
   //your code here
   let result = [];
-  for (let [p, start, end] of arrPenumpang) {
+  for (let [name, start, end] of arrPenumpang) {
     result.push({
-      penumpang: p,
+      penumpang: name,
       naikDari: start,
       tujuan: end,
       bayar: 2000 * (rute.indexOf(end) - rute.indexOf(start)),

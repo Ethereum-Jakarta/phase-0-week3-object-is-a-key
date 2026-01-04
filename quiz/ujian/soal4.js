@@ -6,7 +6,6 @@ Student dapat dinyatakan lulus apabila score lebih besar dari 75.
 Masukkan name dan score dari student ke class yang dia ikuti.
 Student yang tidak lulus tidak perlu ditampilkan.
 Output yang diharapkan berupa Object dengan format sebagai berikut:
-
 {
   <class>: [
     { name: <name>, score: <score> },
@@ -22,12 +21,15 @@ Output yang diharapkan berupa Object dengan format sebagai berikut:
 function graduates(students) {
   // Code disini
   let lulus = {};
-  for (let student of students) {
+  for (const student of students) {
     if (student.score > 75) {
       if (!lulus[student.class]) {
         lulus[student.class] = [];
       }
-      lulus[student.class].push({ name: student.name, score: student.score });
+      lulus[student.class].push({
+        name: student.name,
+        score: student.score,
+      });
     }
   }
   return lulus;

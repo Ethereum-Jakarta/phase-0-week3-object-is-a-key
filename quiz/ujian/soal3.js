@@ -2,7 +2,7 @@
 function highestScore(students) {
   // Code disini
   let result = {};
-  for (let student of students) {
+  for (const student of students) {
     if (!result[student.class]) {
       result[student.class] = student;
     } else {

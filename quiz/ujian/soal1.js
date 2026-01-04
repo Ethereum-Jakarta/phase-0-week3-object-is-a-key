@@ -6,9 +6,12 @@ Implementasikan function deepSum untuk mendapatkan jumlah pertambahan dari angka
 */
 function deepSum(arr) {
   // Code disini
+  // return arr.flat(Infinity).reduce((acc, curr) => acc + curr, 0);
+
   let sum = 0;
   if (arr.length < 1) return "No number";
-  for (child of arr) {
+
+  for (const child of arr) {
     if (typeof child === "object") {
       sum += deepSum(child);
     } else if (typeof child === "number") {
