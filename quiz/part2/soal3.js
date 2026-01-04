@@ -5,11 +5,8 @@ function tukarBesarKecil(kalimat) {
   let arr = kalimat.split("");
   let newArr = [];
   arr.forEach((letter) => {
-    if (letter === letter.toUpperCase()) {
-      newArr.push(letter.toLowerCase());
-    } else {
-      newArr.push(letter.toUpperCase());
-    }
+    if (letter === letter.toUpperCase()) newArr.push(letter.toLowerCase());
+    else newArr.push(letter.toUpperCase());
   });
   return newArr.join("");
 }

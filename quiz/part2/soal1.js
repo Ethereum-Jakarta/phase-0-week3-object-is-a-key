@@ -23,26 +23,18 @@ Return 2
 function digitPerkalianMinimum(angka) {
   // you can only write your code here!
   let arr = [];
-  for (let i = 1; i <= angka; i++) {
+  for (let i = 1; i * i <= angka; i++) {
     let a = angka / i;
     if (Number.isInteger(a)) {
       arr.push([a, i]);
     }
   }
-  let myObj = {};
-  arr.forEach((sub) => {
-    let digit = sub.join("").length;
-    myObj[digit] = myObj[digit] || [];
-    myObj[digit].push(sub);
-  });
 
-  const key = Math.min(...Object.keys(myObj));
-  return key;
-
-  // without object
-  // const digit = arr.map((sub) => sub.join("").length)
-  // const minDigit = Math.min(...digit)
-  // return minDigit
+  const joinPair = arr.map((sub) => sub.join(""));
+  return joinPair.reduce(
+    (acc, curr) => (curr.length < acc ? curr.length : acc),
+    joinPair[0].length
+  );
 }
 
 // TEST CASES
