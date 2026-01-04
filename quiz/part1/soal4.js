@@ -12,18 +12,25 @@ Dan apabila dalam modus hanya ada 1 nilai yang sama maka function akan me-return
 */
 function cariModus(arr) {
   // you can only write your code here!
+  if (arr.length <= 1) return -1;
+
   let myObj = {};
   for (let i = 0; i < arr.length; i++) {
-    if (myObj[arr[i]]) {
-      myObj[arr[i]] += 1;
-    } else {
-      myObj[arr[i]] = 1;
+    myObj[arr[i]] = (myObj[arr[i]] || 0) + 1;
+  }
+
+  let highestVal = 0;
+  let modeKey = 0;
+
+  for (let key in myObj) {
+    if (myObj[key] > highestVal) {
+      highestVal = myObj[key];
+      modeKey = key;
     }
   }
-  let max = Math.max(...Object.values(myObj));
-  if (max === 1) return -1;
-  const key = Object.keys(myObj).find((key) => myObj[key] === max);
-  return key;
+
+  if (highestVal <= 1 || Object.keys(myObj).length <= 1) return -1;
+  return Number(modeKey);
 }
 
 // TEST CASES

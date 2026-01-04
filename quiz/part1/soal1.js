@@ -9,6 +9,7 @@ function angkaPrima(angka) {
   if (angka <= 1) return false;
   for (let i = 2; i <= limit; i++) {
     if (i !== angka && angka % i === 0) {
+      //check if angka habis dibagi angka selain itself
       return false;
     }
   }

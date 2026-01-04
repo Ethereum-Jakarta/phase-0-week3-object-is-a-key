@@ -3,20 +3,25 @@
 // ==========================
 function cariMedian(arr) {
   // you can only write your code here!
-  let halfLen = arr.length / 2;
+
+  //bubble sort
   for (let i = 0; i < arr.length; i++) {
+    let swapped = false;
+
     for (let j = 0; j < arr.length - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        swapped = true;
       }
     }
+    if (!swapped) break; //if no single pair swapped break
   }
 
-  if (arr.length % 2 == 0) {
-    return (arr[halfLen] + arr[halfLen - 1]) / 2;
-  }
+  let halfLen = arr.length / 2;
 
-  return arr[Math.floor(halfLen)];
+  if (arr.length % 2) return arr[Math.floor(halfLen)]; //
+
+  return (arr[halfLen] + arr[halfLen - 1]) / 2;
 }
 
 // TEST CASES

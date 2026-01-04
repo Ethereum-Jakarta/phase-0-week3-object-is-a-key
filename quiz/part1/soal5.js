@@ -7,8 +7,8 @@ function ubahHuruf(kata) {
   // you can only write your code here!
   let result = "";
   for (let i = 0; i < kata.length; i++) {
-    let code = kata.charCodeAt(i) + 1;
-    result += String.fromCharCode(code);
+    let nextCode = kata.charCodeAt(i) + 1;
+    result += String.fromCharCode(nextCode);
   }
   return result;
 }
