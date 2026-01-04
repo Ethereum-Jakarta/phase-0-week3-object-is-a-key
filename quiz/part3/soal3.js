@@ -30,8 +30,8 @@ function countProfit(shoppers) {
     let productPrice = listBarang.find(
       ([name, price, stock]) => name === customer.product
     );
-    // console.log(product)
-    // console.log(productPrice[1] * customer.amount)
+
+    //check if product exist and stock still available
     if (product && customer.amount <= product.leftOver) {
       product.shopper.push(customer.name);
       product.leftOver -= customer.amount;

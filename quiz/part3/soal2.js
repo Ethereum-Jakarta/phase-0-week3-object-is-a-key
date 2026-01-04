@@ -22,6 +22,9 @@ maka output:
 */
 function shoppingTime(memberId, money) {
   // you can only write your code here!
+  if (!memberId) return "Mohon maaf, toko X hanya berlaku untuk member saja";
+  if (money < 50000) return "Mohon maaf, uang tidak cukup";
+
   const products = [
     { name: "Sepatu Stacatu", price: 1500000 },
     { name: "Baju Zoro", price: 500000 },
@@ -30,10 +33,8 @@ function shoppingTime(memberId, money) {
     { name: "Casing Handphone", price: 50000 },
   ];
 
-  const orderedProducts = products.slice().sort((a, b) => b.price - a.price);
+  const sortedProducts = products.sort((a, b) => b.price - a.price); // sorted descending order
 
-  if (!memberId) return "Mohon maaf, toko X hanya berlaku untuk member saja";
-  if (money < 50000) return "Mohon maaf, uang tidak cukup";
   let transaction = {
     memberId: memberId,
     money: money,
@@ -41,7 +42,7 @@ function shoppingTime(memberId, money) {
     changeMoney: money,
   };
 
-  for (product of orderedProducts) {
+  for (const product of sortedProducts) {
     if (transaction.changeMoney >= product.price) {
       transaction.listPurchased.push(product.name);
       transaction.changeMoney -= product.price;

@@ -7,17 +7,17 @@ function changeMe(arr) {
   // you can only write your code here!
   const currentYear = new Date().getFullYear();
   let myObj = {};
-  for (item of arr) {
-    myObj[`${item[0]} ${item[1]}`] = {
-      firstName: item[0],
-      lastName: item[1],
+  for (let person of arr) {
+    let [fName, lName, gender, year] = person;
+
+    myObj[`${fName} ${lName}`] = {
+      firstName: fName,
+      lastName: lName,
       gender:
-        item[2].toLowerCase() == "male" || "female"
-          ? item[2]
-          : "Invalid Gender",
+        gender.toLowerCase() === "male" || "female" ? gender : "Invalid Gender",
       age:
-        item[3] && Number.isInteger(item[3])
-          ? currentYear - item[3]
+        year && Number.isInteger(year)
+          ? currentYear - year
           : "Invalid Birth Year",
     };
   }
