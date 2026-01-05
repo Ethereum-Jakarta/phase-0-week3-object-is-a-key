@@ -7,14 +7,13 @@ function cariMedian(arr) {
   //bubble sort
   for (let i = 0; i < arr.length; i++) {
     let swapped = false;
-
     for (let j = 0; j < arr.length - 1 - i; j++) {
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
         swapped = true;
       }
     }
-    if (!swapped) break; //if no single pair swapped break
+    if (!swapped) break; //if no pair swapped, break early
   }
 
   let halfLen = arr.length / 2;

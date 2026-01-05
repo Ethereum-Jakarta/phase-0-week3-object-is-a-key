@@ -14,6 +14,7 @@ function cariModus(arr) {
   // you can only write your code here!
   if (arr.length <= 1) return -1;
 
+  // store numbers in object with number as key and frequency as value
   let myObj = {};
   for (let i = 0; i < arr.length; i++) {
     myObj[arr[i]] = (myObj[arr[i]] || 0) + 1;
@@ -21,7 +22,7 @@ function cariModus(arr) {
 
   let highestVal = 0;
   let modeKey = 0;
-
+  // get key with highest value (frequency)
   for (let key in myObj) {
     if (myObj[key] > highestVal) {
       highestVal = myObj[key];

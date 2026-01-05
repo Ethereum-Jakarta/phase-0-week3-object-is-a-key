@@ -5,9 +5,9 @@
 // cek google bagi yang ga tau apa itu angka prima
 function angkaPrima(angka) {
   // you can only write your code here!
-  let limit = Math.ceil(Math.sqrt(angka));
+
   if (angka <= 1) return false;
-  for (let i = 2; i <= limit; i++) {
+  for (let i = 2; i * i <= angka; i++) {
     if (i !== angka && angka % i === 0) {
       //check if angka habis dibagi angka selain itself
       return false;
