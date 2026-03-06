@@ -3,13 +3,40 @@
 Akhirnya ketemu object
 
 ## Soal 1
+
 ```js
 function changeMe(arr) {
   // you can only write your code here!
+  if (arr.length === 0) {
+    console.log("");
+    return;
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    let firstName = arr[i][0];
+    let lastName = arr[i][1];
+    let gender = arr[i][2];
+    let birthYear = arr[i][3];
+
+    let age = birthYear !== undefined ? 2023 - birthYear : "Invalid birth year";
+
+    let person = {
+      firstName: firstName,
+      lastName: lastName,
+      gender: gender,
+      age: age,
+    };
+
+    console.log(`${i + 1}. ${firstName} ${lastName}: `);
+    console.log(person);
+  }
 }
 
 // TEST CASES
-changeMe([['Christ', 'Evans', 'Male', 1982], ['Robert', 'Downey', 'Male']]); // 1. Christ Evans:
+changeMe([
+  ["Christ", "Evans", "Male", 1982],
+  ["Robert", "Downey", "Male"],
+]); // 1. Christ Evans:
 // Christ Evans: { firstName: 'Christ',
 //   lastName: 'Evans',
 //   gender: 'Male',
@@ -25,6 +52,7 @@ changeMe([]); // ""
 ```
 
 ## Soal 2
+
 ```js
 /*
 Diberikan sebuah function shoppingTime(memberId, money) yang menerima dua parameter berupa string dan number. Parameter pertama merupakan memberId dan parameter ke-2 merupakan value uang yang dibawa oleh member tersebut.
@@ -50,31 +78,64 @@ maka output:
 
 function shoppingTime(memberId, money) {
   // you can only write your code here!
+  if (!memberId) {
+    return "Mohon maaf, toko X hanya berlaku untuk member saja";
+  }
+
+  if (money < 50000) {
+    return "Mohon maaf, uang tidak cukup";
+  }
+
+  let barangTokoX = [
+    { nama: "Sepatu Stacattu", harga: 1500000 },
+    { nama: "Baju Zoro", harga: 500000 },
+    { nama: "Baju H&N", harga: 250000 },
+    { nama: "Sweater Uniklooh", harga: 175000 },
+    { nama: "Casing Handphone", harga: 50000 },
+  ];
+
+  let listPurchased = [];
+  let changeMoney = money;
+
+  for (let i = 0; i < barangTokoX.length; i++) {
+    if (changeMoney >= barangTokoX[i].harga) {
+      listPurchased.push(barangTokoX[i].nama);
+      changeMoney -= barangTokoX[i].harga;
+    }
+  }
+
+  return {
+    memberId: memberId,
+    money: money,
+    listPurchased: listPurchased,
+    changeMoney: changeMoney,
+  };
 }
 
 // TEST CASES
-console.log(shoppingTime('1820RzKrnWn08', 2475000));
-  //{ memberId: '1820RzKrnWn08',
-  // money: 2475000,
-  // listPurchased:
-  //  [ 'Sepatu Stacattu',
-  //    'Baju Zoro',
-  //    'Baju H&N',
-  //    'Sweater Uniklooh',
-  //    'Casing Handphone' ],
-  // changeMoney: 0 }
-console.log(shoppingTime('82Ku8Ma742', 170000));
+console.log(shoppingTime("1820RzKrnWn08", 2475000));
+//{ memberId: '1820RzKrnWn08',
+// money: 2475000,
+// listPurchased:
+//  [ 'Sepatu Stacattu',
+//    'Baju Zoro',
+//    'Baju H&N',
+//    'Sweater Uniklooh',
+//    'Casing Handphone' ],
+// changeMoney: 0 }
+console.log(shoppingTime("82Ku8Ma742", 170000));
 //{ memberId: '82Ku8Ma742',
 // money: 170000,
 // listPurchased:
 //  [ 'Casing Handphone' ],
 // changeMoney: 120000 }
-console.log(shoppingTime('', 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
-console.log(shoppingTime('234JdhweRxa53', 15000)); //Mohon maaf, uang tidak cukup
+console.log(shoppingTime("", 2475000)); //Mohon maaf, toko X hanya berlaku untuk member saja
+console.log(shoppingTime("234JdhweRxa53", 15000)); //Mohon maaf, uang tidak cukup
 console.log(shoppingTime()); ////Mohon maaf, toko X hanya berlaku untuk member saja
 ```
 
 ## Soal 3
+
 ```js
 /*
 Toko X yang sedang melakukan SALE ingin menghitung jumlah profit untuk setiap jenis barang yang terjual pada hari itu.
@@ -90,16 +151,45 @@ Function countProfit akan mengembalikan/me-return sebuah array of object dimana 
 */
 
 function countProfit(shoppers) {
-  var listBarang = [ ['Sepatu Stacattu', 1500000, 10],
-                     ['Baju Zoro', 500000, 2],
-                     ['Sweater Uniklooh', 175000, 1]
-                   ];
+  var listBarang = [
+    ["Sepatu Stacattu", 1500000, 10],
+    ["Baju Zoro", 500000, 2],
+    ["Sweater Uniklooh", 175000, 1],
+  ];
 
   // you can only write your code here!
+  let barang = [
+    { product: "Sepatu Stacattu", shoppers: [], leftOver: 10, totalProfit: 0 },
+    { product: "Baju Zoro", shoppers: [], leftOver: 2, totalProfit: 0 },
+    { product: "Sweater Uniklooh", shoppers: [], leftOver: 1, totalProfit: 0 },
+  ];
+
+  for (let i = 0; i < shoppers.length; i++) {
+    let namaPembeli = shoppers[i].name;
+    let barangDibeli = shoppers[i].product;
+    let jumlahDibeli = shoppers[i].amount;
+
+    for (let j = 0; j < barang.length; j++) {
+      if (barang[j].product === barangDibeli) {
+        if (barang[j].leftOver >= jumlahDibeli) {
+          barang[j].shoppers.push(namaPembeli);
+          barang[j].leftOver -= jumlahDibeli;
+          barang[j].totalProfit += jumlahDibeli * listBarang[j][1];
+        }
+      }
+    }
+  }
+  return barang;
 }
 
 // TEST CASES
-console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 3}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 2}]));
+console.log(
+  countProfit([
+    { name: "Windi", product: "Sepatu Stacattu", amount: 2 },
+    { name: "Vanessa", product: "Sepatu Stacattu", amount: 3 },
+    { name: "Rani", product: "Sweater Uniklooh", amount: 2 },
+  ])
+);
 //[ { product: 'Sepatu Stacattu',
 //   shoppers: [ 'Windi', 'Vanessa' ],
 //   leftOver: 5,
@@ -113,7 +203,15 @@ console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 2},
 //   leftOver: 1,
 //   totalProfit: 0 } ]
 
-console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8}, {name: 'Vanessa', product: 'Sepatu Stacattu', amount: 10}, {name: 'Rani', product: 'Sweater Uniklooh', amount: 1}, {name: 'Devi', product: 'Baju Zoro', amount: 1}, {name: 'Lisa', product: 'Baju Zoro', amount: 1}]));
+console.log(
+  countProfit([
+    { name: "Windi", product: "Sepatu Stacattu", amount: 8 },
+    { name: "Vanessa", product: "Sepatu Stacattu", amount: 10 },
+    { name: "Rani", product: "Sweater Uniklooh", amount: 1 },
+    { name: "Devi", product: "Baju Zoro", amount: 1 },
+    { name: "Lisa", product: "Baju Zoro", amount: 1 },
+  ])
+);
 // [ { product: 'Sepatu Stacattu',
 //     shoppers: [ 'Windi' ],
 //     leftOver: 2,
@@ -126,7 +224,7 @@ console.log(countProfit([{name: 'Windi', product: 'Sepatu Stacattu', amount: 8},
 //     shoppers: [ 'Rani' ],
 //     leftOver: 0,
 //     totalProfit: 175000 } ]
-console.log(countProfit([{name: 'Windi', product: 'Sepatu Naiki', amount: 5}]));
+console.log(countProfit([{ name: "Windi", product: "Sepatu Naiki", amount: 5 }]));
 // [ { product: 'Sepatu Stacattu',
 //     shoppers: [],
 //     leftOver: 10,
