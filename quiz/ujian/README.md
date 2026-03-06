@@ -7,7 +7,7 @@ Implementasikan function deepSum untuk mendapatkan jumlah pertambahan dari angka
 */
 
 function deepSum (arr) {
-  // Code disini
+
 }
 
 //TEST CASE
