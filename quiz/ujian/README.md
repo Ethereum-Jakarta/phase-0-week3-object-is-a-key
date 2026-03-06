@@ -1,3 +1,4 @@
+git pull origin main --rebase
 # Last Logic Challenge Minggu 3 | Ujian
 
 ## Soal 1
