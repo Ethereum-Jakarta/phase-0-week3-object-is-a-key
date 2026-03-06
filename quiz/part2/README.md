@@ -23,7 +23,7 @@ misal faktronya angka 1 hanyalah
 Return 2
 */
 function digitPerkalianMinimum(angka) {
-  // you can only write your code here!
+  
 }
 
 // TEST CASES
@@ -39,7 +39,7 @@ console.log(digitPerkalianMinimum(1)); // 2
 //DILARANG MENGGUNAKAN METHOD SORT, PELAJARI ALGORITMA SORTING YANG ADA DI GOOGLE
 //saran sih pake bubblesort walau tidak efisien tapi bagus buat belajar sorting
 function urutkanAbjad(str) {
-  // you can only write your code here!
+  
 }
 
 // TEST CASES
