@@ -78,6 +78,7 @@ Spasi juga dianggap sebagai karakter
 
 function checkAB(num) {
   // you can only write your code here!
+
 }
 
 // TEST CASES

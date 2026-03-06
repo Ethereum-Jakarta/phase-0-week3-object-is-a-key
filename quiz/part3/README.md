@@ -9,7 +9,8 @@ function changeMe(arr) {
 }
 
 // TEST CASES
-changeMe([['Christ', 'Evans', 'Male', 1982], ['Robert', 'Downey', 'Male']]); // 1. Christ Evans:
+changeMe([['Christ', 'Evans', 'Male', 1982], ['Robert', 'Downey', 'Male']]);
+ // 1. Christ Evans:
 // Christ Evans: { firstName: 'Christ',
 //   lastName: 'Evans',
 //   gender: 'Male',
@@ -50,6 +51,7 @@ maka output:
 
 function shoppingTime(memberId, money) {
   // you can only write your code here!
+ 
 }
 
 // TEST CASES
