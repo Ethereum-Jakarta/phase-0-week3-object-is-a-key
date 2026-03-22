@@ -17,7 +17,7 @@ karena dibawah ini 2 digit dan terkecil
 
 ya jadikan dia minimum
 
-misal faktronya angka 1 hanyalah
+misal faktornya angka 1 hanyalah
 1*1 = 2 digit (11)
 
 Return 2
