@@ -7,7 +7,11 @@ function angkaPrima(angka) {
     return false;
   }
 
+<<<<<<< HEAD
   for (let i = 2; i < angka; i++) {
+=======
+  for (let i = 2; i < Math.sqrt(angka); i++) {
+>>>>>>> b79a11d80ede47ba86902d72d7c87518ccc58529
     if (angka % i === 0) {
       return false;
     }
