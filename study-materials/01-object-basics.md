@@ -197,8 +197,8 @@ for (let key in siswa) {
 ### Hati-Hati: `in` vs `of`
 
 ```js
-// for...in = iterasi KEY (buat Object)
-// for...of = iterasi VALUE (buat Array)
+// for...in = iterasi KEY (buat Object) //in untuk key
+// for...of = iterasi VALUE (buat Array) //of untuk value
 
 let arr = ["apel", "mangga", "jeruk"];
 

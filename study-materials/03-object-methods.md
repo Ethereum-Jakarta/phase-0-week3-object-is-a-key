@@ -127,7 +127,7 @@ Object gak punya `.filter()`, tapi lo bisa convert ke entries, filter, terus con
 let scores = { andi: 85, budi: 60, cici: 92, dodi: 45 };
 
 // Filter: ambil yang nilainya >= 75
-let lulus = Object.entries(scores)
+let lulus = Object.entries(scores) //Object.entries convert object ke array [[key1,value1],[key2,value2].....]
   .filter(function(entry) {
     return entry[1] >= 75; // entry[1] = value (nilainya)
   });
