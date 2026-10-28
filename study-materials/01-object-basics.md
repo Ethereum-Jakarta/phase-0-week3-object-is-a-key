@@ -245,9 +245,23 @@ if ("nama" in siswa) {
 ```js
 // Real-world: Array of Objects (PALING SERING dipakai!)
 let students = [
-  { nama: "Andi", nilai: 85, lulus: true },
-  { nama: "Budi", nilai: 60, lulus: false },
-  { nama: "Cici", nilai: 92, lulus: true }
+  { 
+    nama: "Andi", 
+    nilai: 85, 
+    lulus: true 
+    },
+
+  { 
+    nama: "Budi", 
+    nilai: 60, 
+    lulus: false 
+    },
+
+  { 
+    nama: "Cici", 
+    nilai: 92, 
+    lulus: true 
+    }
 ];
 
 // Bisa di-loop, di-filter, di-map!
